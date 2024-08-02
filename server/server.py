@@ -23,10 +23,10 @@ def send_name_id():
 
 @app.route('/get_candidate', methods=['GET'])
 def get_candidate():
-    candidate_id = request.args.get('candidate_id', type=int)
+    candidate_id = request.args.get('candidate_id', type=str)
     if candidate_id:
         data, code = sd.get_candidate(candidate_id)
-        return make_response(data, code)
+        return data, code
     return f"Bad request. Please provide a candidate_id. '{candidate_id}' not understood", 400
 
 # If the script is run directly, the server will run on the host on port 5000. THis is what makes it accessable from other devices on the same network.

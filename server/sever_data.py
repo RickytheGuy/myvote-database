@@ -15,7 +15,7 @@ class ServerData():
     def get_name_id(self) -> str:
         return self.basic_data[['name', 'candidate_id']].to_json(orient='records')
     
-    def get_candidate(self, candidate_id: int) -> tuple:
+    def get_candidate(self, candidate_id: str) -> tuple:
         """
         Return a dictionary of the candidate's data and a status code.
         For now we us
@@ -30,10 +30,12 @@ class ServerData():
             'party': '', #Lots of party names
             # 'district': 1, #Necesarry?
             'state': 'Texas',
-            'age': int,
+            'age': 30,
             'incumbent': False, #?
             'traits':[
-                {'title': 'Supports increasing taxes for the rich in order to reduce interest rates for student loans?', 'response': 'Response'},
+                {'title': 'Supports increasing taxes for the rich in order to reduce interest rates for student loans?', 
+                 'response': 'Response'},
+                
                 {'title': 'Opinion on the highest marginal tax rate?', 'response': 'Response'},
                 {'title': 'Supports a wealth tax in order to pay for public programs?', 'response': 'Response'},
                 {'title': 'Should the federal minimum wage be increased, and if so, to what level?', 'response': 'Response'},
