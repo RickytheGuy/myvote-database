@@ -15,7 +15,7 @@ class ServerData():
     def get_name_id(self) -> str:
         return self.basic_data[['name', 'candidate_id']].to_json(orient='records')
     
-    self.trait_data = {
+    trait_data = {
         "Economy and Taxes": [ 
             {'question': 'Supports increasing taxes for the rich in order to reduce interest rates for student loans?', 'response': 'Response'},
             {'question': 'Opinion on the highest marginal tax rate?', 'response': 'Response'},
