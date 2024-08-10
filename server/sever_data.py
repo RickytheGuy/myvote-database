@@ -83,7 +83,13 @@ class ServerData():
             state = 'Unknown'
             incumbent = False
 
-        categories = [{"title": title, "traits": traits} for title, traits in self.trait_data.items()]
+        categories = []
+        # Filter out traits with missing responses
+        for title, traits in self.trait_data.items():
+            valid_traits = [trait for trait in traits if trait.get('response', '').strip()]
+             # Only add the category if there are valid traits
+            if valid_traits:
+                categories.append({"title": title, "traits": valid_traits})
 
         candidate = {
             'candidate_id': candidate_id,
