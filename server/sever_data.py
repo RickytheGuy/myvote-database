@@ -11,9 +11,9 @@ class ServerData():
         # This line finds and reads the CVS file and stores it in a Pnadas dataframe assigned as the basic_data attribute in ServerData class.
         self.basic_data = pd.read_csv(os.path.join('data', 'candidate_basic.csv'))
     
-    # This function takes in self and returns a string of the names and IDs of the candidates in the basic_data attribute in JSON records format.
+    # This function takes in self and returns a string of the names, parties, and and IDs of the candidates in the basic_data attribute in JSON records format.
     def get_name_id(self) -> str:
-        return self.basic_data[['name', 'candidate_id']].to_json(orient='records')
+        return self.basic_data[['name', 'candidate_id', 'party_full']].to_json(orient='records')
     
     trait_data = {
         "Economy and Taxes": [ 
