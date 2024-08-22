@@ -17,10 +17,10 @@ class ServerData():
     
     trait_data = {
         "Economy and Taxes": [ 
-            {'question': 'Supports increasing taxes for the rich in order to reduce interest rates for student loans?', 'response': 'Response'},
-            {'question': 'Opinion on the highest marginal tax rate?', 'response': 'Response'},
-            {'question': 'Supports a wealth tax in order to pay for public programs?', 'response': 'Response'},
-            {'question': 'Should the federal minimum wage be increased, and if so, to what level?', 'response': 'Response'},
+            {'question': 'Supports increasing taxes for the rich in order to reduce interest rates for student loans?', 'response': ''},
+            {'question': 'Opinion on the highest marginal tax rate?', 'response': ''},
+            {'question': 'Supports a wealth tax in order to pay for public programs?', 'response': ''},
+            {'question': 'Should the federal minimum wage be increased, and if so, to what level?', 'response': ''},
         ],
         "Education": [
             {'question': 'Supports President Biden\’s student loan forgiveness program and the forgiveness of federal student loan debt?', 'response': 'Response'},
@@ -36,10 +36,10 @@ class ServerData():
         ],
         "Gun Control": [
             {'question': 'Should there be more restrictions on the current process of purchasing a gun?', 'response': 'Response'},
-            {'question': '26. Do they generally support gun-control legislation (e.g., red flag laws, boyfriend loopholes)?', 'response': 'Response'}, 
+            {'question': 'Generally supports gun-control legislation (e.g., red flag laws, boyfriend loopholes)?', 'response': 'Response'}, 
         ],
         "Healthcare": [ 
-            {'question': 'What steps would they take to ensure all Americans have access to quality and affordable health care, including reproductive care and prescription drug coverage?', 'response': 'Response'},
+            {'question': 'What steps would be taken to ensure all Americans have access to quality and affordable health care, including reproductive care and prescription drug coverage?', 'response': 'Response'},
             {'question': 'Should the government regulate the prices of life-saving drugs?', 'response': 'Response'},
             {'question': 'Supports a government-run (e.g., single-payer) healthcare program, such as Medicare-for-All?', 'response': 'Response'},
             {'question': 'Stance on abortion and do they support the Supreme Court\'s decision to overturn Roe v. Wade?', 'response': 'Response'},
@@ -69,13 +69,13 @@ class ServerData():
         """
 
         try:
-            candidate_info = self.basic_data.loc[self.basic_data['candidate_id'] == candidate_id, 'name'].iloc[0]
+            candidate_info = self.basic_data.loc[self.basic_data['candidate_id'] == candidate_id]
             # name = self.basic_data.loc[self.basic_data['candidate_id'] == candidate_id, 'name'].values[0]
-            name = candidate_info['name']
-            party = candidate_info['party']
-            age = candidate_info['age']
-            state = candidate_info['state']
-            incumbent = candidate_info['incumbent']
+            name = candidate_info['name'].values[0]
+            party = candidate_info['party'].values[0]
+            age = 45 #candidate_info['age'].values[0]
+            state = candidate_info['state'].values[0]
+            incumbent = True #candidate_info['incumbent'].values[0]
         except:
             name = 'TEST NAME'
             party = 'Unknown'
